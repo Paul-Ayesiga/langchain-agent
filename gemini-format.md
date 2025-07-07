@@ -72,27 +72,7 @@ def searchInternet(query:str) -> str:
     """
     return serpapi.run(query)
 
-
-@tool
-def create_file(filename: str, content: str) -> str:
-    """Create a new file with the given filename and write content into it.
-
-    Args:
-        filename: Name of the file to create (e.g., 'notes.txt')
-        content: The text content to write into the file
-
-    Returns:
-        str: Success message with the path of the created file
-    """
-    try:
-        with open(filename, 'w', encoding='utf-8') as f:
-            f.write(content)
-        return f"File '{filename}' created successfully with provided content."
-    except Exception as e:
-        return f"Failed to create file: {str(e)}"
-
-
-tools = [math, searchInternet, create_file]
+tools = [math, searchInternet]
 
 prompt = ChatPromptTemplate.from_messages(
     [
